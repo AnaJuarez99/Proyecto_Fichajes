@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
+  <!--Plugins-->
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""/>
+
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -305,6 +311,8 @@
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
+
+
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
@@ -334,7 +342,12 @@
 <script src="plugins/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!--<script src="plugins/dist/js/demo.js"></script>-->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="plugins/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->{{-- 
+<script src="plugins/dist/js/pages/dashboard.js"></script> --}}
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
