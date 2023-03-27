@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+<h1>Instalación</h1>
+<p>A continuación se detallan los pasos necesarios para instalar la aplicación:</p>
+<ol>
+<li>Descargate el proyecto y descomprimelo.</li>
+  <li>Abre una terminal y sitúate en el directorio de la aplicación.</li>
+  <li>Ejecuta el siguiente comando para instalar las dependencias necesarias:</li>
+  <pre><code>composer install</code></pre>
+  <li>Una vez instaladas las dependencias, ejecuta el siguiente comando para instalar Laravel/UI:</li>
+  <pre><code>composer require laravel/ui</code></pre>
+  <li>Por último, ejecuta el siguiente comando para compilar los assets:</li>
+  <pre><code>npm install && npm run dev</code></pre>
+</ol>
+<p>Con estos pasos, deberías tener la aplicación lista para ser utilizada.</p>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
