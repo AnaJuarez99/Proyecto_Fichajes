@@ -38,6 +38,7 @@ Route::get('/administracion', function () {
 
 Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
 
+
 Route::get('/inicio', function () {
     return view('inicio');
 })->name("inicio");
