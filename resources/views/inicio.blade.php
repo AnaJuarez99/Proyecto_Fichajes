@@ -7,37 +7,61 @@
 @stop
 
 @section('content')
-<div id="map" style="height: 400px;"></div>
-<button id="enable-location-btn" onclick="showmap()" style="display: none;">Habilitar geolocalización</button>
+    <div id="map" style="height: 400px; "></div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+      
 
-<script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    function showmap(){
-	var map = L.map('map').setView([40.416775, -3.703790], 13);
-
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		maxZoom: 19
-	}).addTo(map);
-
-	L.marker([40.416775, -3.703790]).addTo(map)
-		.bindPopup("Madrid, España").openPopup();
-}
-function showPosition(position) {
-  alert("Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude);
-}
-
-
-  navigator.geolocation.getCurrentPosition(showPosition);
-
-</script>
-
+    <script>
+        $(function() {
+            let watcher = navigator.geolocation.watchPosition(success, error, {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0,
+                accuracy: 10
+            });
+            
+            function error(err) {
+                if (err.code === 1) {
+                    console.log("Asegúrate de dar permisos de geolocalización a tu navegador...");
+                }
+                if (err.code === 2) {
+                    console.log("La geolocalizción de tu dispositivo no está disponible...");
+                }
+                if (err.code === 3) {
+                    console.log("Se ha agotado el tiempo de espera para geolocalizar tu dispositivo...");
+                }
+            }
+    
+            function success(pos) {
+                navigator.geolocation.clearWatch(watcher);
+                console.log(pos);
+                
+                var map = L.map('map').setView([pos.coords.latitude, pos.coords.longitude], 13);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+    
+                var redIcon = L.icon({
+                    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                });
+    
+                var marker = L.marker([pos.coords.latitude, pos.coords.longitude], {icon: redIcon}).addTo(map);
+    
+                setInterval(function() {
+                    // Aquí puedes actualizar la posición de los marcadores y polígonos
+                    // por ejemplo:
+                    marker.setLatLng([pos.coords.latitude, pos.coords.longitude]);
+                }, 5000);
+            }
+        });
+    </script>
     
 @stop
 
