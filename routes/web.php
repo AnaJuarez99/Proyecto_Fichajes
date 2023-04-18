@@ -18,8 +18,10 @@ use App\Http\Controllers\AdministracionController;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    return view('inicio');
+})->name("inicio");
+
+Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
 
 Auth::routes();
 
@@ -39,9 +41,7 @@ Route::get('/administracion', function () {
 Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
 
 
-Route::get('/inicio', function () {
-    return view('inicio');
-})->name("inicio");
 
-Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
+
+
 
