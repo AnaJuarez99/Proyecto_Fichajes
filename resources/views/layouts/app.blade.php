@@ -39,7 +39,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="plugins/dist/img/logo.png" alt="AdminLTELogo" height="130" width="130">
+    <img class="animation__shake" src="plugins/dist/img/logo.png" alt="AdminLTELogo" height="130" width="150">
   </div>
 
   <!-- Navbar -->
