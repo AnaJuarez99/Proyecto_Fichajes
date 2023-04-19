@@ -37,7 +37,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="plugins/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="plugins/dist/img/logo.png" alt="AdminLTELogo" height="130" width="130">
   </div>
 
   <!-- Navbar -->
@@ -47,19 +47,19 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <!--<li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li>-->
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        
+
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
@@ -114,7 +114,7 @@
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        
+
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -129,8 +129,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="plugins/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <img src="plugins/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle " >
+      <span class="brand-text font-weight-light">EasyClok</span>
     </a>
 
     <!-- Sidebar -->
@@ -192,7 +192,7 @@
             </a>
           </li>
         -->
-          
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -283,7 +283,7 @@
         </div> --}}
         <div class="row">
           <!-- Left col -->
-        
+
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->
@@ -342,7 +342,7 @@
 <script src="plugins/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!--<script src="plugins/dist/js/demo.js"></script>-->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->{{-- 
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->{{--
 <script src="plugins/dist/js/pages/dashboard.js"></script> --}}
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
 integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
