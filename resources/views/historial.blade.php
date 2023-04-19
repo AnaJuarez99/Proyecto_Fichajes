@@ -7,20 +7,20 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center display-3 fw-bold text-light animate__animated animate__fadeInDown">
-                <i class="fas fa-history text-danger mr-3"></i>Historial de Usuarios
+                <i class="fas fa-history text-danger mr-3"></i><b>Historial de Usuarios</b>
             </h1>
         </div>
     </div>
 </div>
 
-  
-  
+
+
 @stop
 
 @section('content')
 
 
-  
+
 <div class="container my-5">
 
     <div class="row justify-content-center">
@@ -34,7 +34,7 @@
             </div>
           </div>
         <div class="table-responsive">
-            
+
           <table class="table table-hover">
             <thead class="thead-dark">
               <tr>
@@ -95,15 +95,15 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
+
   <script>
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
     });
   </script>
-  
-  
-  
+
+
+
 @stop
 
 @section('css')
