@@ -9,10 +9,13 @@
 @section('content')
     <div id="map" style="height: 400px; "></div>
 
+        <!-- Crear un elemento canvas con un ID único -->
+        <canvas id="miGrafico" width="500" height="100" ></canvas>
       
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         $(function() {
@@ -61,6 +64,67 @@
                 }, 5000);
             }
         });
+
+
+        //Graficas
+        // Obtener los datos de prueba
+
+
+// Datos de ejemplo (hora y nombre de directores)
+// Datos de ejemplo (hora y cantidad de usuarios)
+var data = {
+  labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+  datasets: [
+    {
+      label: 'Juan Pérez',
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      data: [1, 0, 3, 4, 3, 2, 0, 0, 0]
+    },
+    {
+      label: 'María González',
+      backgroundColor: 'rgba(54, 162, 235, 0.5)',
+      data: [0, 0, 2, 3, 4, 5, 2, 1, 0]
+    },
+    {
+      label: 'Pedro Rodríguez',
+      backgroundColor: 'rgba(255, 206, 86, 0.5)',
+      data: [0, 1, 2, 2, 2, 2, 2, 2, 0]
+    }
+  ]
+};
+
+// Configuración del gráfico
+var options = {
+  scales: {
+    x: {
+      stacked: true
+    },
+    y: {
+      stacked: true
+    }
+  },
+  plugins: {
+    legend: {
+      position: 'bottom'
+    }
+  },
+  tooltips: {
+    mode: 'index',
+    intersect: false
+  }
+};
+
+// Configurar el gráfico
+var ctx = document.getElementById('miGrafico').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: options
+});
+
+
+
+
     </script>
     
 @stop
