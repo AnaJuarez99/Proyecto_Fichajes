@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+
+  <link rel="icon" href="plugins/dist/img/logo.ico" type="image/x-icon">
+  <title>EasyClock</title>
   <!--Plugins-->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
