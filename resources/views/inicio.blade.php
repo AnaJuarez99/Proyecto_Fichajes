@@ -64,7 +64,6 @@
         });
 
 
-<<<<<<< HEAD
         //Graficas
         // Obtener los datos de prueba
 
@@ -123,8 +122,6 @@ var myChart = new Chart(ctx, {
 
 //as
 
-=======
->>>>>>> 40e5544551f42a7380772ae7f7ffd4f7d2dd99d6
 
     </script>
 
