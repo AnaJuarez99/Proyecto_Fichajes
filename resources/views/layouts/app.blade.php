@@ -180,6 +180,14 @@
               </li>
 
                <li class="nav-item">
+                <a href="{{ route('historial') }}" class="nav-link">
+                  <i class="nav-icon fas fa-history"></i>
+                  <p>
+                    Historial
+                     <!--<span class="right badge badge-danger">New</span> -->
+                  </p>
+                </a>
+              </li>
                     <a href="{{ route('historial') }}" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
