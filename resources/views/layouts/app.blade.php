@@ -12,6 +12,10 @@
   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
   crossorigin=""/>
 
+  <!--Full Calendar-->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -175,14 +179,16 @@
               </li>
 
                <li class="nav-item">
-                <a href="{{ route('historial') }}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Historial
-                     <!--<span class="right badge badge-danger">New</span> -->
-                  </p>
-                </a>
-              </li>
+                    <a href="{{ route('historial') }}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Historial
+                        <!--<span class="right badge badge-danger">New</span> -->
+                    </p>
+                    </a>
+                </li>
+
+                
               <!--
           <li class="nav-item">
             <a href="{{ route('administracion') }}" class="nav-link">
