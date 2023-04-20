@@ -40,11 +40,6 @@ Route::get('/administracion', function () {
 
 Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
 
-
-Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
-Route::post('/evento/agregar', [CalendarioController::class,'agregarEvento'])->name('agregarEvento');
-Route::post('/evento/actualizar', [CalendarioController::class,'actualizarEvento'])->name('actualizarEvento');
-Route::post('/evento/eliminar', [CalendarioController::class,'eliminarEvento'])->name('eliminarEvento');
-
+Route::post('/logout', [Auth\LoginController::class, 'logout'])->name('logout');
 
 

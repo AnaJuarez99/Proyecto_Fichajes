@@ -135,7 +135,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('inicio') }}" class="brand-link">
       <img src="plugins/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle " >
       <span class="brand-text font-weight-light">EasyClock</span>
     </a>
@@ -191,6 +191,7 @@
 
 
 
+
               <!--
           <li class="nav-item">
             <a href="{{ route('administracion') }}" class="nav-link">
@@ -204,6 +205,9 @@
         -->
 
         </ul>
+
+
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
