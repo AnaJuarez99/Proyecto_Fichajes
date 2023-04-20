@@ -8,6 +8,24 @@
 
 @section('content')
     <div id="map" style="height: 400px; "></div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <button style="width: 50%;" onclick="fichar()" class="btn btn-dark btn-lg border-10 my-5">Fichar</button>
+      </div>
+      
+ 
+
+
+    <div class="d-flex justify-content-center">
+        <button id="btn-dia" class="btn btn-dark active mx-1">Mostrar por día</button>
+        <button id="btn-semana" class="btn btn-dark mx-1">Mostrar por semana</button>
+        <button id="btn-mes" class="btn btn-dark mx-1">Mostrar por mes</button>
+      </div>
+      
+      
+      
+      
+      
     <canvas id="miGrafico" width="500" height="100" ></canvas>
 
 
@@ -17,6 +35,27 @@
 
 
     <script>
+
+$(document).ready(function() {
+  $('#btn-dia').click(function() {
+    $(this).addClass('active');
+    $('#btn-semana, #btn-mes').removeClass('active');
+    // Resto del código para mostrar gráfico por día
+  });
+
+  $('#btn-semana').click(function() {
+    $(this).addClass('active');
+    $('#btn-dia, #btn-mes').removeClass('active');
+    // Resto del código para mostrar gráfico por semana
+  });
+
+  $('#btn-mes').click(function() {
+    $(this).addClass('active');
+    $('#btn-dia, #btn-semana').removeClass('active');
+    // Resto del código para mostrar gráfico por mes
+  });
+});
+
         $(function() {
             let watcher = navigator.geolocation.watchPosition(success, error, {
                 enableHighAccuracy: true,
@@ -66,55 +105,132 @@
 
         // Datos de ejemplo (hora y nombre de directores)
         // Datos de ejemplo (hora y cantidad de usuarios)
-        var data = {
-        labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
-        datasets: [
-            {
-            label: 'Juan Pérez',
-            backgroundColor: 'rgba(255, 0, 0, 0.7)',
-            data: [1, 0, 3, 4, 3, 2, 0, 0, 0]
-            },
-            {
-            label: 'María González',
-            backgroundColor: 'rgba(0, 0, 255, 0.7)',
-            data: [0, 0, 2, 3, 4, 5, 2, 1, 0]
-            },
-            {
-            label: 'Pedro Rodríguez',
-            backgroundColor: 'rgba(0, 156, 34, 0.7)',
-            data: [0, 1, 2, 2, 2, 2, 2, 2, 0]
-            }
-        ]
-        };
 
-        // Configuración del gráfico
-        var options = {
-        scales: {
-            x: {
-            stacked: true
-            },
-            y: {
-            stacked: true
-            }
-        },
-        plugins: {
-            legend: {
-            position: 'bottom'
-            }
-        },
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        }
-        };
+  var fechaActual = new Date();
+  var mesActual = fechaActual.getMonth();
+  var anioActual = fechaActual.getFullYear();
+  var diasDelMes = [];
 
-        // Configurar el gráfico
-        var ctx = document.getElementById('miGrafico').getContext('2d');
-        var myChart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: options
-        });
+  // Obtenemos el número de días del mes actual
+  var numDias = new Date(anioActual, mesActual + 1, 0).getDate();
+
+  // Generamos la lista de días del mes actual
+  for (var i = 1; i <= numDias; i++) {
+    diasDelMes.push(i.toString());
+  }
+
+
+        var dataDia = {
+  labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+  datasets: [
+    {
+      label: 'Juan Pérez',
+      backgroundColor: 'rgba(255, 0, 0, 0.7)',
+      data: [1, 0, 3, 4, 3, 2, 0, 0, 0]
+    },
+    {
+      label: 'María González',
+      backgroundColor: 'rgba(0, 0, 255, 0.7)',
+      data: [0, 0, 2, 3, 4, 5, 2, 1, 0]
+    },
+    {
+      label: 'Pedro Rodríguez',
+      backgroundColor: 'rgba(0, 156, 34, 0.7)',
+      data: [0, 1, 2, 2, 2, 2, 2, 2, 0]
+    }
+  ]
+};
+
+var dataSemana = {
+  labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+  datasets: [
+    {
+      label: 'Juan Pérez',
+      backgroundColor: 'rgba(255, 0, 0, 0.7)',
+      data: [10, 8, 12, 9, 15, 11, 7]
+    },
+    {
+      label: 'María González',
+      backgroundColor: 'rgba(0, 0, 255, 0.7)',
+      data: [5, 6, 4, 7, 8, 9, 10]
+    },
+    {
+      label: 'Pedro Rodríguez',
+      backgroundColor: 'rgba(0, 156, 34, 0.7)',
+      data: [3, 2, 1, 3, 2, 1, 0]
+    }
+  ]
+};
+
+var dataMes = {
+  labels: diasDelMes,
+  datasets: [
+    {
+      label: 'Juan Pérez',
+      backgroundColor: 'rgba(255, 0, 0, 0.7)',
+      data: [5, 6, 4, 7, 8, 9, 10, 12, 11, 9, 10, 11, 12, 13, 15, 14, 13, 12, 11, 9, 8, 7, 6, 5, 4, 3, 2, 1, 2, 3, 4]
+    },
+    {
+      label: 'María González',
+      backgroundColor: 'rgba(0, 0, 255, 0.7)',
+      data: [3, 2, 1, 3, 2, 1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      label: 'Pedro Rodríguez',
+      backgroundColor: 'rgba(0, 156, 34, 0.7)',
+      data: [1, 0, 3, 4, 3, 2, 0, 2, 4, 6, 8, 10, 9, 7, 5, 4, 3, 2, 1, 0, 2, 4, 6, 8, 9, 7, 5, 4, 3, 2, 1]
+    }
+  ]
+};
+
+
+var options = {
+  scales: {
+    x: {
+      stacked: true
+    },
+    y: {
+      stacked: true
+    }
+  },
+  plugins: {
+    legend: {
+      position: 'bottom'
+    }
+  },
+  tooltips: {
+    mode: 'index',
+    intersect: false
+  }
+};
+
+var ctx = document.getElementById('miGrafico').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: dataDia,
+  options: options
+});
+
+document.getElementById('btn-dia').addEventListener('click', function() {
+  myChart.data = dataDia;
+  myChart.update();
+});
+
+document.getElementById('btn-semana').addEventListener('click', function() {
+  myChart.data = dataSemana;
+  myChart.update();
+});
+
+document.getElementById('btn-mes').addEventListener('click', function() {
+  myChart.data = dataMes;
+  myChart.update();
+});
+
+//Funcion fichar
+function fichar() {
+  // código para fichar
+  console.log("Has fichado correctamente");
+}
 
 
     </script>
