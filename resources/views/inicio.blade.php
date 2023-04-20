@@ -25,6 +25,9 @@
 
     <canvas id="miGrafico" width="500" height="100" ></canvas>
 
+    
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
