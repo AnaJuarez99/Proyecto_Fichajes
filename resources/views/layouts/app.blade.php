@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" href="plugins/dist/img/logo.ico" type="image/x-icon">
+  <link rel="icon" href="plugins/dist/img/logo-preloader.png" type="image/x-icon" >
   <title>EasyClock</title>
   <!--Plugins-->
 
@@ -43,7 +43,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="plugins/dist/img/logo.png" alt="AdminLTELogo" height="130" width="150">
+    <img class="animation__shake" src="plugins/dist/img/logo-preloader.png" alt="AdminLTELogo" height="150" width="170" >
   </div>
 
   <!-- Navbar -->
@@ -188,7 +188,7 @@
                     </a>
                 </li>
 
-                
+
               <!--
           <li class="nav-item">
             <a href="{{ route('administracion') }}" class="nav-link">
