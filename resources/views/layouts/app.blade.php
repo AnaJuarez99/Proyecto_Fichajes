@@ -67,7 +67,7 @@
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
 
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
@@ -164,7 +164,7 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+<!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -191,6 +191,7 @@
 
 
 
+
               <!--
           <li class="nav-item">
             <a href="{{ route('administracion') }}" class="nav-link">
@@ -204,6 +205,9 @@
         -->
 
         </ul>
+ 
+
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -281,7 +285,7 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+<p>Unique Visitors</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
