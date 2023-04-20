@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -166,7 +167,7 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                 <a href="{{ route('inicio') }}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+                  <i class="nav-icon fas fa-home"></i>
                   <p>
                     Inicio
                     <!-- <span class="right badge badge-danger">New</span> -->
@@ -176,7 +177,7 @@
 
                <li class="nav-item">
                 <a href="{{ route('historial') }}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+                  <i class="nav-icon fas fa-history"></i>
                   <p>
                     Historial
                      <!--<span class="right badge badge-danger">New</span> -->
