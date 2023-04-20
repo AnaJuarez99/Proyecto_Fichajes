@@ -12,7 +12,7 @@
   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
   crossorigin=""/>
 
-  <!--Full Calendar-->
+  <!--Full Calendar.-->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
