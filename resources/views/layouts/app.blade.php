@@ -67,7 +67,7 @@
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
 
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
@@ -135,7 +135,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('inicio') }}" class="brand-link">
+    <a href="index3.html" class="brand-link">
       <img src="plugins/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle " >
       <span class="brand-text font-weight-light">EasyClock</span>
     </a>
@@ -164,7 +164,7 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+<!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -205,7 +205,7 @@
         -->
 
         </ul>
-
+ 
 
 
       </nav>
@@ -285,7 +285,7 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+<p>Unique Visitors</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
