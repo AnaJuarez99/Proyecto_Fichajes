@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" href="plugins/dist/img/logo-preloader.png" type="image/x-icon" >
+  <link rel="icon" href="plugins/dist/img/icono.png" type="image/x-icon" >
   <title>EasyClock</title>
   <!--Plugins-->
 
@@ -137,7 +137,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="plugins/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle " >
-      <span class="brand-text font-weight-light">EasyClok</span>
+      <span class="brand-text font-weight-light">EasyClock</span>
     </a>
 
     <!-- Sidebar -->
