@@ -2,9 +2,9 @@
 
 @section('na', 'Dashboard')
 
-@section('content_header')
+{{-- @section('content_header')
     <h1>Administración</h1>
-@stop
+@stop --}}
 
 @section('content')
 
@@ -22,25 +22,35 @@
               </div>
 
               <div class="col-md-8">
-                <h3 class="mb-0">Nombre y apellidos</h3>
-                <p class="text-muted">Cargo en la empresa</p>
+                <h3 class="mb-0">{{Auth::user()->nombre}} {{Auth::user()->apellidos}}</h3>
+                {{-- <p class="text-muted">Cargo en la empresa</p> --}}
+                <br>
 
                 <div class="mb-3">
                   <i class="fas fa-phone-alt mr-2"></i>
                   <span>Teléfono:</span>
-                  <a href="tel:+1234567890" class="text-decoration-none">+1234567890</a>
+                  <a href="tel:{{Auth::user()->telefono}}" class="text-decoration-none">{{Auth::user()->telefono}}</a>
                 </div>
 
                 <div class="mb-3">
                   <i class="far fa-envelope mr-2"></i>
                   <span>Correo electrónico:</span>
-                  <a href="mailto:correo@empresa.com" class="text-decoration-none">correo@empresa.com</a>
+                  <a href="mailto:{{Auth::user()->email}}" class="text-decoration-none">{{Auth::user()->email}}</a>
                 </div>
 
                 <div class="mb-3">
                   <i class="far fa-id-card mr-2"></i>
                   <span>DNI:</span>
-                  <span>12345678A</span>
+                  <span>{{Auth::user()->dni}}</span>
+                </div>
+                
+                <div class="mb-3">
+                  @if(Auth::check())
+                      <form action="{{ route('logout') }}" method="POST">
+                          @csrf
+                          <button type="submit" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+                      </form>
+                  @endif
                 </div>
               </div>
             </div>
@@ -50,44 +60,42 @@
     </div>
   </div>
 
-  <div class="container-fluid p-0 m-0" style="background: linear-gradient(to bottom right, #3d3d3d, #6565652d); border-radius: 10px;">
+  <div class="container-fluid p-0 m-0">
     <div class="row justify-content-center m-0 my-5">
       <div class="col-md-6" style="max-width: 500px;">
-        <div class="card shadow-lg" style="border-radius: 10px; margin-top: 15px;">
-          <div class="card-header text-center" style="background-color: #6e6e6e; color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; ">
-            <h3 class="card-title mb-0 py-2 align-items: center text-center" >Editar perfil</h3>
+        <div class="card shadow-lg rounded-0" style="border-radius: 10px; margin-top: 15px;">
+          <div class="card-header rounded-0 bg-E5E7E9 text-black text-center d-flex justify-content-center" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+            <h3 class="card-title mb-0 py-2 text-center fs-22 font-weight-medium">Editar perfil</h3>
           </div>
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" value="" placeholder="Nombre">
+                <label for="nombre" class="form-label fs-18 font-weight-normal">Nombre</label>
+                <input type="text" class="form-control bg-E5E7E9" id="nombre" value="" placeholder="{{Auth::user()->nombre}}">
               </div>
               <div class="mb-3">
-                <label for="apellidos" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" value="" placeholder="Apellidos">
+                <label for="apellidos" class="form-label fs-18 font-weight-normal">Apellidos</label>
+                <input type="text" class="form-control bg-E5E7E9" id="apellidos" value="" placeholder="{{Auth::user()->apellidos}}">
               </div>
               <div class="mb-3">
-                <label for="dni" class="form-label">Dni</label>
-                <input type="text" class="form-control" id="dni" value="" placeholder="Dni">
+                <label for="dni" class="form-label fs-18 font-weight-normal">DNI</label>
+                <input type="text" class="form-control bg-E5E7E9" id="dni" value="" placeholder="{{Auth::user()->dni}}">
               </div>
               <div class="mb-3">
-                <label for="correo" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="correo" value="" placeholder="Correo electrónico">
+                <label for="correo" class="form-label fs-18 font-weight-normal">Correo electrónico</label>
+                <input type="email" class="form-control bg-E5E7E9" id="correo" value="" placeholder="{{Auth::user()->email}}">
               </div>
               <div class="mb-3">
-                <label for="telefono" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="telefono" value="" placeholder="Teléfono">
+                <label for="telefono" class="form-label fs-18 font-weight-normal">Teléfono</label>
+                <input type="tel" class="form-control bg-E5E7E9" id="telefono" value="" placeholder="{{Auth::user()->telefono}}">
               </div>
               <div class="mb-3">
-                <label for="puesto-trabajo" class="form-label">Puesto de trabajo</label>
-                <input type="text" class="form-control" id="puesto-trabajo" value="" placeholder="Puesto de trabajo">
+                <label for="puesto-trabajo" class="form-label fs-18 font-weight-normal">Puesto de trabajo</label>
+                <input type="text" class="form-control bg-E5E7E9" id="puesto-trabajo" value="" placeholder="{{Auth::user()->puesto}}">
               </div>
               <div class="card-body d-flex justify-content-center">
-                <button type="submit" class="btn btn-light btn-lg shadow-sm" style="border-radius: 30px; background-color: #6e6e6e; color: #fff; border: none; width: 200px;"
-                  onmouseover="this.style.backgroundColor='#8a8a8a'; this.style.color='#fff'"
-                  onmouseout="this.style.backgroundColor='#6e6e6e'; this.style.color='#fff'">
-                  Guardar cambios
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm font-weight-bold" style="border-radius: 30px; color: #fff; border: none; width: 200px;">
+                  GUARDAR
                 </button>
               </div>
 
