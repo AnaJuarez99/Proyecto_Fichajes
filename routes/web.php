@@ -18,8 +18,8 @@ use App\Http\Controllers\AdministracionController;
 */
 
 Route::get('/', function () {
-    return view('inicio');
-})->name("inicio");
+    return view('Auth\login');
+})->name("login");
 
 Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
 
@@ -40,6 +40,4 @@ Route::get('/administracion', function () {
 
 Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
 
-Route::post('/logout', [Auth\LoginController::class, 'logout'])->name('logout');
-
-
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

@@ -6,6 +6,8 @@
 
   <link rel="icon" href="plugins/dist/img/icono.png" type="image/x-icon" >
   <title>EasyClock</title>
+
+   @vite('resources\sass\app.scss"')
   <!--Plugins-->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -148,7 +150,7 @@
           <img src="plugins/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{ route('administracion') }}" class="d-block">Alexander Pierce</a>
+          <a href="{{ route('administracion') }}" class="d-block text-decoration-none">{{Auth::user()->nombre}} {{Auth::user()->apellidos}}</a>
         </div>
       </div>
 
@@ -215,7 +217,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper cadetblue">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
