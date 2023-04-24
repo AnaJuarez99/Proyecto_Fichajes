@@ -2,9 +2,9 @@
 
 @section('na', 'Historial')
 
-@section('content_header')
+{{-- @section('content_header')
     <h1>Inicio</h1>
-@stop
+@stop --}}
 
 @section('content')
     <div id="map" style="height: 400px; "></div>
