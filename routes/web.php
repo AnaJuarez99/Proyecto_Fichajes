@@ -21,23 +21,23 @@ Route::get('/', function () {
     return view('auth.login');
 })->name("login");
 
-Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
+Route::get('/inicio', [InicioController::class, 'index'])->name('inicio')->middleware(['auth']);;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth']);;
 
 
 Route::get('/historial', function () {
     return view('historial');
 })->name("historial");
 
-Route::get('/historial', [HistorialController::class, 'index'])->name('historial');
+Route::get('/historial', [HistorialController::class, 'index'])->name('historial')->middleware(['auth']);;
 
 Route::get('/administracion', function () {
     return view('administracion');
 })->name("administracion");
 
-Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
+Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion')->middleware(['auth']);;
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
