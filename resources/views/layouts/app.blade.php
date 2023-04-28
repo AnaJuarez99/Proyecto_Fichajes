@@ -7,7 +7,7 @@
   <link rel="icon" href="plugins/dist/img/icono.png" type="image/x-icon" >
   <title>EasyClock</title>
 
-   @vite('resources\js\app.js"')
+   @vite('resources\js\app.js')
   <!--Plugins-->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
