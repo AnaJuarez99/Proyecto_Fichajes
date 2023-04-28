@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center mt-mb-50">
         <div class="col-md-6">
-            <div class="card rounded-0">
-                <div class="card-header text-center h2 bg-E5E7E9">{{ __('REGISTRO') }}</div>
+            <div class="card rounded-2">
+                <div class="card-header text-center h3 bg-E5E7E9">{{ __('REGISTRO') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -119,7 +119,7 @@
 
                         <div class="form-group">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary fs-27 w-50 font-weight-bold">
+                                <button type="submit" class="btn btn-primary fs-27 w-50 ">
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>
@@ -127,7 +127,7 @@
 
                         <div class="form-group">
                             <a href="{{ route('login') }}" class="text-center fs-22 text-decoration-none">
-                                <p>Iniciar sesión</p>
+                                <p>Login</p>
                             </a>
                         </div>
                     </form>
