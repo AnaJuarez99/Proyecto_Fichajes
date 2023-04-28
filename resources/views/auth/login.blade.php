@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary w-50 fs-27 font-weight-bold">
+                                <button type="submit" class="btn btn-primary w-100 fs-27 font-weight-bold">
                                     {{ __('Login') }}
                                 </button>
 
