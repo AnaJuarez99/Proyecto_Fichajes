@@ -7,7 +7,9 @@
 @stop --}}
 
 @section('content')
+<div id="error-message" style="display: none;">La geolocalización no está disponible en tu dispositivo.</div>
     <div id="map" style="height: 400px; "></div>
+
 
     <div class="d-flex justify-content-center align-items-center">
         <button style="width: 50%;" onclick="fichar()" class="btn btn-dark btn-lg border-10 my-5">Fichar</button>
@@ -70,6 +72,7 @@
                 }
                 if (err.code === 2) {
                     console.log("La geolocalizción de tu dispositivo no está disponible...");
+                    document.getElementById('error-message').style.display = 'block';
                 }
                 if (err.code === 3) {
                     console.log("Se ha agotado el tiempo de espera para geolocalizar tu dispositivo...");
@@ -100,6 +103,7 @@
                     // por ejemplo:
                     marker.setLatLng([pos.coords.latitude, pos.coords.longitude]);
                 }, 5000);
+                document.getElementById('error-message').style.display = 'none';
             }
         });
 
