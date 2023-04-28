@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    @vite('resources\sass\app.scss"')
+    @vite('resources/js/app.js')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 </head>
 <body>
