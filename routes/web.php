@@ -18,7 +18,7 @@ use App\Http\Controllers\AdministracionController;
 */
 
 Route::get('/', function () {
-    return view('Auth\login');
+    return view('auth.login');
 })->name("login");
 
 Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
