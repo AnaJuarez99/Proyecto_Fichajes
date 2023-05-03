@@ -7,7 +7,7 @@
   <link rel="icon" href="plugins/dist/img/icono.png" type="image/x-icon" >
   <title>EasyClock</title>
 
-   @vite('resources\js\app.js')
+   @vite('resources/js/app.js')
   <!--Plugins-->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -74,7 +74,7 @@
             <!-- Message Start -->
             <div class="media">
               <img src="plugins/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
+              <div class="media-body"></div>
                 <h3 class="dropdown-item-title">
                   Brad Diesel
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
@@ -85,9 +85,10 @@
             </div>
             <!-- Message End -->
           </a>
+          <!--
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            
             <div class="media">
               <img src="plugins/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -99,11 +100,11 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+          
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            
             <div class="media">
               <img src="plugins/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -115,12 +116,12 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+         
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
-      </li>
+      </li>-->
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
 
@@ -147,7 +148,12 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="plugins/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          @if (Auth::check() && Auth::user()->photo)
+          <img src="{{ asset('photos/' . Auth::user()->photo) }}" alt="Foto de perfil" class="img-circle elevation-2" style="width: 40px; height: 40px;">
+
+          @else
+            <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="img-fluid rounded-circle mb-3">
+          @endif
         </div>
         <div class="info">
           <a href="{{ route('administracion') }}" class="d-block text-decoration-none">{{Auth::user()->nombre}} {{Auth::user()->apellidos}}</a>

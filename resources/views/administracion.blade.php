@@ -18,8 +18,30 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-4 text-center">
-                <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="img-fluid rounded-circle mb-3">
+                @if (Auth::check() && Auth::user()->photo)
+                <img src="{{ asset('photos/' . Auth::user()->photo) }}" alt="Foto de perfil" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px;">
+
+                @else
+                  <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="img-fluid rounded-circle mb-3">
+                @endif
+
+
               </div>
+
+              <div class="col-md-8">
+
+                <form action="{{ route('administracion.upload_photo') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="photo">Foto de perfil</label>
+                        <input type="file" name="photo" id="photo" class="form-control-file">
+                        @error('photo')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar foto de perfil</button>
+                </form>
+            </div>
 
               <div class="col-md-8">
                 <h3 class="mb-0">{{Auth::user()->nombre}} {{Auth::user()->apellidos}}</h3>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\File;
 
 
 class AdministracionController extends Controller
@@ -54,6 +54,32 @@ public function updateProfile(Request $request)
 
     return redirect()->route('administracion')->with('success', 'Perfil actualizado exitosamente.');
 }
+
+public function upload_photo(Request $request)
+{
+
+    $imagen = $request->file('photo');
+
+    if($imagen) {
+
+        File::deleteDirectory(public_path('photos'));
+        // Mueve la imagen a la carpeta public/photos
+        $imagen->move(public_path('photos'), $imagen->getClientOriginalName());
+    
+        // Guarda el nombre del archivo en la base de datos
+        $user = Auth::user();
+        $user->photo = $imagen->getClientOriginalName();
+        $user->save();
+    
+        // Muestra un mensaje de éxito
+        return back()->with('success', 'La imagen se ha guardado correctamente.');
+    }
+    
+    // Muestra un mensaje de error
+    return back()->with('error', 'No se ha cargado ninguna imagen.');
+
+}
+
 
 
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class AdministradorController extends Controller
 {
     protected function validator(array $data)
@@ -35,4 +36,6 @@ class AdministradorController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
 }
