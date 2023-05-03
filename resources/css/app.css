@@ -45,7 +45,26 @@
     font-weight: 500;
 }
 
+@media (max-width: 1000px) {
+    .fs-70{
+        font-size: 70px;
+    }
 
+    .fs-50{
+        font-size: 50px;
+    }
+
+    .fs-30{
+        font-size: 30px;
+    }
+
+    .form-control.inputs {
+
+        font-size: 40px;
+      }
+      
+  }
+  
   
 
     
