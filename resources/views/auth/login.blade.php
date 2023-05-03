@@ -4,7 +4,7 @@
 <div class="container ">
     <div class="row justify-content-center align-items-center min-vh-100">
         <div class="col-lg-6 col-sm-12 ">
-            <div class="bg-light p-5 rounded vw-10">
+            <div class="bg-light p-5 rounded ">
                 <h1 class="font-weight-bold mb-5 text-center fs-70">Login</h1>
 
                 <form method="POST" action="{{ route('login') }}">
@@ -12,7 +12,7 @@
 
                     <div class="form-group">
                         <label for="email" class="font-weight-medium fs-50">Correo electrónico</label>
-                        <input id="email" type="email" class="form-control inputs @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Introduzca el correo electrónico">
+                        <input id="email" type="email" class="inputs2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Introduzca el correo electrónico">
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label for="password" class="font-weight-medium fs-50">Contraseña</label>
-                        <input id="password" type="password" class="form-control inputs  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Introduzca la contraseña">
+                        <input id="password" type="password" class="inputs2  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Introduzca la contraseña">
 
                         @error('password')
                             <span class="invalid-feedback fs-50" role="alert">

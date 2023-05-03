@@ -2,6 +2,30 @@
 .cadetblue {
     background-color: rgba(177, 178, 179, 0.651);
 }
+/*Estilo del titulo defecto*/
+.h3-custom {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /*Estilos de los inputs ordenador*/
+  .inputs2{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
 
 .bg-E5E7E9 {
     background-color: #E5E7E9;
@@ -46,21 +70,45 @@
 }
 
 @media (max-width: 1000px) {
+    /*Estilo del titulo*/
     .fs-70{
         font-size: 70px;
     }
-
+    /*Estilo de los labels*/
     .fs-50{
         font-size: 50px;
     }
 
+    /*Estilo de los botones y enlaces*/
     .fs-30{
         font-size: 30px;
     }
 
-    .form-control.inputs {
+    .form-control .inputs {
 
-        font-size: 40px;
+        font-size: 40px !important;
+      }
+
+      /*Estilos de los inputs mobil*/
+      .inputs2{
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+
+      /*Tamaño fondo para ocupar todo con ese color*/
+      .tamaño {
+        height: 100vh;
+    
       }
       
   }

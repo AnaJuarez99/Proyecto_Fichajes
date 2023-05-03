@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 </head>
 <body>
-    <div class="content cadetblue">
+    <div class="content cadetblue tamaño">
         @yield('content')
     </div>
 </body>
