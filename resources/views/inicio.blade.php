@@ -24,9 +24,9 @@
         <button id="btn-mes" class="btn btn-outline-dark mx-1">Fichajes por mes</button>
     </div>
 
-
-    <canvas id="miGrafico" width="500" height="100" ></canvas>
-
+    <div style="max-width: 100%; padding-bottom: 50px;">
+        <canvas id="miGrafico"></canvas>
+    </div>
     
 
 
@@ -189,6 +189,7 @@
 
 
         var options = {
+            responsive: true,
             scales: {
                 x: {
                 stacked: true
@@ -205,7 +206,7 @@
             tooltips: {
                 mode: 'index',
                 intersect: false
-            }
+            },
         };
 
         var ctx = document.getElementById('miGrafico').getContext('2d');
