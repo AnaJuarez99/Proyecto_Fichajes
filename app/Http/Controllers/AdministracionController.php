@@ -61,8 +61,8 @@ public function upload_photo(Request $request)
     $imagen = $request->file('photo');
 
     if($imagen) {
-
-        File::deleteDirectory(public_path('photos'));
+        //Se utiliza para borrar todos los registros de la  acrpeta
+       // File::deleteDirectory(public_path('photos'));
         // Mueve la imagen a la carpeta public/photos
         $imagen->move(public_path('photos'), $imagen->getClientOriginalName());
     
