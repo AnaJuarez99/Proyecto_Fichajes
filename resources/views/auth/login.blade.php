@@ -5,13 +5,14 @@
     <div class="row justify-content-center align-items-center min-vh-100">
         <div class="col-lg-6 col-sm-12 ">
             <div class="bg-light p-5 rounded ">
-                <h1 class="font-weight-bold mb-5 text-center fs-70">Login</h1>
+                <div class="card-header text-center h3-custom   fs-65">{{ __('LOGIN') }}</div>
+
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
                     <div class="form-group">
-                        <label for="email" class="font-weight-medium fs-50">Correo electrónico</label>
+                        <label for="email" class="fs-22 font-weight-normal fs-50">Correo electrónico</label>
                         <input id="email" type="email" class="inputs2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Introduzca el correo electrónico">
 
                         @error('email')
@@ -22,7 +23,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="font-weight-medium fs-50">Contraseña</label>
+                        <label for="password" class="fs-22 font-weight-normal fs-50">Contraseña</label>
                         <input id="password" type="password" class="inputs2  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Introduzca la contraseña">
 
                         @error('password')
@@ -42,9 +43,9 @@
                         </div>
                     </div> --}}
 
-                    <div class="form-group text-right">
+                    <div class="form-group text-right fs-27">
                         @if (Route::has('password.request'))
-                            <a class=" btn-link p-0 text-decoration-none fs-30" href="{{ route('password.request') }}">
+                            <a class=" btn-link p-0 text-decoration-none forgotpass" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif

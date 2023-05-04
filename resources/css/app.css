@@ -1,6 +1,12 @@
 
 .cadetblue {
-    background-color: rgba(177, 178, 179, 0.651);
+    background-image:url("../../public/plugins/dist/img/fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
 }
 /*Estilo del titulo defecto*/
 .h3-custom {
@@ -10,7 +16,7 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
-  
+
   /*Estilos de los inputs ordenador*/
   .inputs2{
     display: block;
@@ -32,17 +38,31 @@
 }
 
 .fs-22 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
-.fs-18 {
-    font-size: 18px;
+.fs-12 {
+    font-size: 12px;
 }
 
 .fs-27 {
     font-size: 22px;
     margin-top: -20px;
-    
+
+}
+
+.fs-30{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.fs-65{
+    margin-top: -20px;
+}
+
+.fs-70{
+    font-size: 30px;
+
 }
 
 .mt-mb-50 {
@@ -69,14 +89,27 @@
     font-weight: 500;
 }
 
+.registro{
+    margin-top: 20px;
+ }
+
+.card-body{
+    margin-top: -8px;
+
+}
+
+.forgotpass{
+ font-size: 17px;
+}
+
 @media (max-width: 1000px) {
     /*Estilo del titulo*/
     .fs-70{
-        font-size: 70px;
+        font-size: 60px;
     }
     /*Estilo de los labels*/
     .fs-50{
-        font-size: 50px;
+        font-size: 40px;
     }
 
     /*Estilo de los botones y enlaces*/
@@ -84,12 +117,18 @@
         font-size: 30px;
     }
 
+    .fs-27{
+        margin-top: 20px;
+    }
+
     .form-control .inputs {
 
         font-size: 40px !important;
       }
 
-      /*Estilos de los inputs mobil*/
+
+
+      /*Estilos de los inputs movil*/
       .inputs2{
         display: block;
         width: 100%;
@@ -108,12 +147,15 @@
       /*Tamaño fondo para ocupar todo con ese color*/
       .tamaño {
         height: 100vh;
-    
-      }
-      
-  }
-  
-  
 
-    
+      }
+
+      .rounded-2{
+        margin-top: 150px;
+      }
+
+  }
+
+
+
 
