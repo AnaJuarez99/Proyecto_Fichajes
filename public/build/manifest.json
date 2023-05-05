@@ -8,14 +8,14 @@
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app.0c8cb175.css"
+      "assets/app.aaa1a0f7.css"
     ],
     "assets": [
       "assets/fondo.bb31b79e.png"
     ]
   },
   "resources/js/app.css": {
-    "file": "assets/app.0c8cb175.css",
+    "file": "assets/app.aaa1a0f7.css",
     "src": "resources/js/app.css"
   }
 }
