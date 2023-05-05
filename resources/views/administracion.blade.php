@@ -65,7 +65,7 @@
                   <span>DNI:</span>
                   <span>{{Auth::user()->dni}}</span>
                 </div>
-                
+
                 <div class="mb-3">
                   @if(Auth::check())
                       <form action="{{ route('logout') }}" method="POST">
@@ -85,9 +85,9 @@
   <div class="container-fluid p-0 m-0">
     <div class="row justify-content-center m-0 my-5">
       <div class="col-md-6" style="max-width: 500px;">
-        <div class="card shadow-lg rounded-0" style="border-radius: 10px; margin-top: 15px;">
+        <div class="card shadow-lg rounded-0" style="border-radius: 20px;   border:solid #6565659c 1px; margin-top: 15px;">
           <div class="card-header rounded-0 bg-E5E7E9 text-black text-center d-flex justify-content-center" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
-            <h3 class="card-title mb-0 py-2 text-center fs-22 font-weight-medium">Editar perfil</h3>
+            <h3 class="card-title mb-0 py-2 text-center fs-22 font-weight-medium" style="border-radius: 20px;">Editar perfil</h3>
           </div>
           <div class="card-body">
             <form>
