@@ -90,7 +90,7 @@
           <!--
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            
+
             <div class="media">
               <img src="plugins/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -102,11 +102,11 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-          
+
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            
+
             <div class="media">
               <img src="plugins/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -118,7 +118,7 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-         
+
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
@@ -225,7 +225,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper cadetblue">
+  <div class="content-wrapper  " style="background-color: rgba(180, 178, 178, 0.61)">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
