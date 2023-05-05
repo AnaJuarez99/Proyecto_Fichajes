@@ -225,7 +225,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper  " style="background-color: rgba(180, 178, 178, 0.61)">
+  <div class="content-wrapper  " style="background-color: rgba(221, 221, 221, 0.349)">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
