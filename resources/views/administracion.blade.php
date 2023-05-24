@@ -8,6 +8,18 @@
 
 @section('content')
 
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('photo'))
+<div class="alert alert-success">
+    {{ session('photo') }}
+</div>
+@endif
+
 <div class="container mt-5">
 
     <div class="row justify-content-center">
@@ -90,51 +102,73 @@
             <h3 class="card-title mb-0 py-2 text-center fs-22 font-weight-medium" style="border-radius: 20px;">Editar perfil</h3>
           </div>
           <div class="card-body">
-            <form>
+            <form action="{{ route('administracion.updateProfile') }}" method="POST">
+              @csrf
               <div class="mb-3">
                 <label for="nombre" class="form-label fs-18 font-weight-normal">Nombre</label>
-                <input type="text" class="form-control bg-E5E7E9" id="nombre" value="" placeholder="{{Auth::user()->nombre}}">
+                <input type="text" class="form-control bg-E5E7E9 @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="{{ old('nombre') }}" placeholder="{{Auth::user()->nombre}}">
+                @error('nombre')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="apellidos" class="form-label fs-18 font-weight-normal">Apellidos</label>
-                <input type="text" class="form-control bg-E5E7E9" id="apellidos" value="" placeholder="{{Auth::user()->apellidos}}">
+                <input type="text" class="form-control bg-E5E7E9 @error('apellidos') is-invalid @enderror" name="apellidos" id="apellidos" value="{{ old('apellidos') }}" placeholder="{{Auth::user()->apellidos}}">
+                @error('apellidos')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="dni" class="form-label fs-18 font-weight-normal">DNI</label>
-                <input type="text" class="form-control bg-E5E7E9" id="dni" value="" placeholder="{{Auth::user()->dni}}">
+                <input type="text" class="form-control bg-E5E7E9 @error('dni') is-invalid @enderror" name="dni" id="dni" value="{{ old('dni') }}" placeholder="{{Auth::user()->dni}}">
+                @error('dni')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="mb-3">
-                <label for="correo" class="form-label fs-18 font-weight-normal">Correo electrónico</label>
-                <input type="email" class="form-control bg-E5E7E9" id="correo" value="" placeholder="{{Auth::user()->email}}">
+                <label for="email" class="form-label fs-18 font-weight-normal">Correo electrónico</label>
+                <input type="email" class="form-control bg-E5E7E9 @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" placeholder="{{Auth::user()->email}}" disabled>
+                @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="telefono" class="form-label fs-18 font-weight-normal">Teléfono</label>
-                <input type="tel" class="form-control bg-E5E7E9" id="telefono" value="" placeholder="{{Auth::user()->telefono}}">
+                <input type="tel" class="form-control bg-E5E7E9 @error('telefono') is-invalid @enderror" name="telefono" id="telefono" value="{{ old('telefono') }}" placeholder="{{Auth::user()->telefono}}">
+                @error('telefono')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="mb-3">
-                <label for="puesto-trabajo" class="form-label fs-18 font-weight-normal">Puesto de trabajo</label>
-                <input type="text" class="form-control bg-E5E7E9" id="puesto-trabajo" value="" placeholder="{{Auth::user()->puesto}}">
+                <label for="puesto" class="form-label fs-18 font-weight-normal">Puesto de trabajo</label>
+                <input type="text" class="form-control bg-E5E7E9 @error('puesto') is-invalid @enderror" name="puesto" id="puesto" value="{{ old('puesto') }}" placeholder="{{Auth::user()->puesto}}">
+                @error('puesto')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="card-body d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-lg shadow-sm font-weight-bold" style="border-radius: 30px; color: #fff; border: none; width: 200px;">
                   GUARDAR
                 </button>
               </div>
-
-
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
 
 @stop
 

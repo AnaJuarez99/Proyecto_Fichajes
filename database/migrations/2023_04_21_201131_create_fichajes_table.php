@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_usuario');
             $table->date('fecha');
-            $table->time('hora_inicio');
-            $table->time('hora_fin');
-            $table->string('localizacion');
+            $table->time('hora_entrada');
+            $table->string('localizacion_entrada');
+            $table->time('hora_salida')->nullable();
+            $table->string('localizacion_salida')->nullable();
+            $table->integer('horas')->nullable();
             $table->timestamps();
 
             $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');

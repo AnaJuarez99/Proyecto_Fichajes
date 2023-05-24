@@ -5,9 +5,8 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
-
 }
+
 /*Estilo del titulo defecto*/
 .h3-custom {
     font-size: 1.5rem;
@@ -126,8 +125,6 @@
         font-size: 40px !important;
       }
 
-
-
       /*Estilos de los inputs movil*/
       .inputs2{
         display: block;
@@ -155,7 +152,3 @@
       }
 
   }
-
-
-
-

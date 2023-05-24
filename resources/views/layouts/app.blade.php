@@ -179,15 +179,18 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
-                <a href="{{ route('inicio') }}" class="nav-link">
-                  <i class="nav-icon fas fa-home"></i>
-                  <p>
-                    Inicio
-                    <!-- <span class="right badge badge-danger">New</span> -->
-                  </p>
-                </a>
-              </li>
+               
+                @if (Auth::user()->type === 0)
+                <li class="nav-item">
+                  <a href="{{ route('inicio') }}" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>
+                      Inicio
+                      <!-- <span class="right badge badge-danger">New</span> -->
+                    </p>
+                  </a>
+                </li>  
+                @endif
 
                <li class="nav-item">
                 <a href="{{ route('historial') }}" class="nav-link">

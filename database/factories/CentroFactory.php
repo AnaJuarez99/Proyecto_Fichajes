@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,9 @@ class CentroFactory extends Factory
     {
         return [
             'coordenadas' => fake()->latitude() . ', ' . fake()->longitude(),
+            'direccion' => Str::limit(fake()->address(), 30),
             'ciudad' => fake()->city(),
+            'provincia' => fake()->state(),
             'cp' => fake()->numberBetween(10000, 99999)
         ];
     }
