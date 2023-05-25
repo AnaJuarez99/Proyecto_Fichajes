@@ -57,16 +57,26 @@
 <script>
 
   var fichajesSemana = {
-      "Lunes": {{ isset($fichajesSemana[0]->horas) ? $fichajesSemana[0]->horas : 0 }},
-      "Martes": {{ isset($fichajesSemana[1]->horas) ? $fichajesSemana[1]->horas : 0 }},
-      "Miércoles": {{ isset($fichajesSemana[2]->horas) ? $fichajesSemana[2]->horas : 0 }},
-      "Jueves": {{ isset($fichajesSemana[3]->horas) ? $fichajesSemana[3]->horas : 0 }},
-      "Viernes": {{ isset($fichajesSemana[4]->horas) ? $fichajesSemana[4]->horas : 0 }}
+    @php
+      $daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+      $fichajesData = [];
+      foreach ($fichajesSemana as $fichaje) {
+        $dayOfWeek = date('N', strtotime($fichaje->fecha));
+        $fichajesData[$dayOfWeek] = $fichaje->horas;
+      }
+    @endphp
+    @for ($day = 1; $day <= 5; $day++)
+      {{ $daysOfWeek[$day - 1] }}: {{ isset($fichajesData[$day]) ? $fichajesData[$day] : 0 }}{{ $day != 5 ? ',' : '' }}
+    @endfor
   };
 
   var fichajesMes = {
-    @foreach ($fichajesMes as $index => $fichaje)
-        {{ $index + 1 }} : {{ isset($fichaje->horas) ? $fichaje->horas : 0 }},
+    @foreach (range(1, cal_days_in_month(CAL_GREGORIAN, date('n'), date('Y'))) as $day)
+      {{ $day }} : {{ 0 }},
+      
+      @foreach ($fichajesMes as $index => $fichaje)
+        {{ date('d', strtotime($fichaje->fecha)) }} : {{ isset($fichaje->horas) ? $fichaje->horas : 0 }},
+      @endforeach
     @endforeach
   };
 

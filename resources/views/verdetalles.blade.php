@@ -51,7 +51,7 @@
     </tbody>
   </table>
 
-  <table class="table table-hover">
+  <table class="table table-hover text-center">
     <thead class="thead-dark">
       <tr>
         <th>Fecha</th>
@@ -59,12 +59,18 @@
         <th>Localización entrada</th>
         <th>Hora salida</th>
         <th>Localización salida</th>
+        <th>Horas</th>
       </tr>
     </thead>
     <tbody>
         @foreach ($fichajes as $fichaje)
             <tr>
-                <td>{{$fichaje->fecha}}</td><td>{{$fichaje->hora_entrada}}</td><td>{{$fichaje->localizacion_entrada}}</td><td>{{$fichaje->hora_salida}}</td><td>{{$fichaje->localizacion_salida}}</td>
+                <td>{{$fichaje->fecha}}</td>
+                <td>{{$fichaje->hora_entrada}}</td>
+                <td>{{$fichaje->localizacion_entrada}}</td>
+                <td>{{$fichaje->hora_salida}}</td>
+                <td>{{$fichaje->localizacion_salida}}</td>
+                <td>{{$fichaje->horas}}</td>
             </tr>
         @endforeach
     </tbody>
