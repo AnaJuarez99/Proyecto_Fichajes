@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('centros', function (Blueprint $table) {
             $table->id();
             $table->string('coordenadas');
+            $table->string('direccion');
             $table->string('ciudad');
+            $table->string('provincia');
             $table->integer('cp');
             $table->timestamps();
         });

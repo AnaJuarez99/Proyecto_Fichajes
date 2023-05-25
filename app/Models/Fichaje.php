@@ -12,8 +12,10 @@ class Fichaje extends Model
     protected $fillable = [
         'id_usuario',
         'fecha',
-        'hora_inicio',
-        'hora_fin',
-        'localizacion'
+        'hora_entrada',
+        'localizacion_entrada',
+        'hora_salida',
+        'localizacion_salida',
+        'horas'
     ];
 }

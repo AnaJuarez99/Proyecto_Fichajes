@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
 
 
 class AdministracionController extends Controller
@@ -28,31 +28,29 @@ public function updateProfile(Request $request)
 
     // Validar los campos enviados en el formulario
     $request->validate([
-        'nombre' => 'required|string|max:255',
-        'apellidos' => 'required|string|max:255',
-        'dni' => 'required|string|max:9|unique:users,dni,'.$user->id,
-        'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
-    ]);
+        'nombre' => ['nullable', 'string', 'max:30'],
+        'apellidos' => ['nullable', 'string', 'max:30'],
+        'dni' => ['nullable', 'string', 'size:9', 'unique:users'],
+        'telefono' => ['nullable', 'string', 'size:9'],
+        'puesto' => ['nullable', 'string', 'max:50']
+    ]);    
 
-    // Actualizar los campos del usuario
-    $user->nombre = $request->nombre;
-    $user->apellidos = $request->apellidos;
-    $user->dni = $request->dni;
-    $user->email = $request->email;
-
-    // Actualizar la foto de perfil si se ha subido una nueva
-    if ($request->hasFile('foto')) {
-        $foto = $request->file('foto');
-        $filename = time() . '_' . $foto->getClientOriginalName();
-        Storage::putFileAs('public/fotos', $foto, $filename);
-        $user->foto = $filename;
+    // Actualizar los campos del usuario si se han enviado valores en el formulario
+    $updated = false;
+    foreach ($request->all() as $key => $value) {
+        if ($value && isset($user->$key)) {
+            $user->$key = $value;
+            $updated = true;
+        }
     }
 
-    // Guardar los cambios en la base de datos
-    $user->save();
+    // Guardar los cambios en la base de datos si se ha actualizado algún campo
+    if ($updated) {
+        $user->save();
+        return redirect()->route('administracion')->with('success', 'Perfil actualizado exitosamente.');
+    }
 
-    return redirect()->route('administracion')->with('success', 'Perfil actualizado exitosamente.');
+    return redirect()->route('administracion');
 }
 
 public function upload_photo(Request $request)
@@ -79,7 +77,4 @@ public function upload_photo(Request $request)
     return back()->with('error', 'No se ha cargado ninguna imagen.');
 
 }
-
-
-
 }

@@ -20,9 +20,10 @@ class FichajeFactory extends Factory
         return [
             'id_usuario' => User::all()->random()->id,
             'fecha' => fake()->date(),
-            'hora_inicio' => fake()->time(),
-            'hora_fin' => fake()->time(),
-            'localizacion' => fake()->address(),
+            'hora_entrada' => fake()->time(),
+            'localizacion_entrada' => fake()->address(),
+            'hora_salida' => fake()->time(),
+            'localizacion_salida' => fake()->address()
         ];
     }
 }
