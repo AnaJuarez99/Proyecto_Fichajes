@@ -9,13 +9,13 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
-    protected $priority = 1;
+    protected $priority = 2;
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        User::factory(5)->create();
 
         $user = new User();
 

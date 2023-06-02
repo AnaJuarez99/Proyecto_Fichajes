@@ -53,6 +53,6 @@ class InicioController extends Controller
             return redirect()->route('inicio')->with('mensaje', 'Se ha registrado su salida correctamente.');
         }
 
-        return redirect()->route('inicio')->with('mensaje', 'Ya ha registrado su entrada y salida del día de hoy.');
+        return redirect()->route('inicio')->with('error', 'Ya ha registrado su entrada y salida del día de hoy.');
     }
 }

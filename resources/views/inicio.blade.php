@@ -12,6 +12,12 @@
     </div>
 @endif
 
+@if(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session()->get('error') }}
+    </div>
+@endif
+
 <div id="error-message" style="display: none;">La geolocalización no está disponible en tu dispositivo.</div>
     <div id="map" style="height: 400px; "></div>
 
