@@ -80,8 +80,6 @@
     @endforeach
   };
 
-
-  // Configuración del gráfico para fichajes por semana
   var ctxSemana = document.getElementById('miGrafico').getContext('2d');
   var myChartSemana = new Chart(ctxSemana, {
       type: 'bar',
@@ -104,7 +102,6 @@
       }
   });
 
-  // Configuración del gráfico para fichajes por mes
   var ctxMes = document.getElementById('miGraficoMes').getContext('2d');
   var myChartMes = new Chart(ctxMes, {
       type: 'bar',
@@ -127,7 +124,6 @@
       }
   });
 
-  // Funcionalidad de los botones
   $(document).ready(function() {
       $('#btn-semana').click(function() {
           $('#miGrafico').show();
@@ -149,12 +145,10 @@
   });
 
   $('#btn-generar-pdf-semanal').click(function() {
-        // Redirige a la ruta de generación de PDF
         window.location.href = '{{ route("generarPDFSemanal") }}';
     });
 
     $('#btn-generar-pdf-mensual').click(function() {
-        // Redirige a la ruta de generación de PDF
         window.location.href = '{{ route("generarPDFMensual") }}';
     });
 </script>

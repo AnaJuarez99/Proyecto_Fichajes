@@ -49,55 +49,61 @@ class HistorialController extends Controller
         $fechaInicioSemana = Carbon::now()->startOfWeek();
         $fechaFinSemana = Carbon::now()->endOfWeek();
 
-        $fichajesSemana = Fichaje::where('id_usuario', Auth::user()->id)->whereBetween('fecha', [$fechaInicioSemana, $fechaFinSemana])->orderBy('fecha')->get();
+        $fichajesSemana = Fichaje::where('id_usuario', Auth::user()->id)
+            ->whereBetween('fecha', [$fechaInicioSemana, $fechaFinSemana])
+            ->orderBy('fecha')
+            ->get();
 
-        // Obtén las horas semanales del usuario
         $horasSemanales = [];
         $daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
 
         for ($day = 1; $day <= 5; $day++) {
             $dayName = $daysOfWeek[$day - 1];
-            $horasSemanales[$dayName] = 0;
+            $horasSemanales[$dayName] = [
+                'horas' => 0,
+                'hora_entrada' => null,
+                'hora_salida' => null,
+            ];
         }
 
         foreach ($fichajesSemana as $fichaje) {
             $dayOfWeek = date('N', strtotime($fichaje->fecha));
             $dayName = $daysOfWeek[$dayOfWeek - 1];
-            $horasSemanales[$dayName] = $fichaje->horas;
+            $horasSemanales[$dayName]['hora_entrada'] = $fichaje->hora_entrada;
+            $horasSemanales[$dayName]['hora_salida'] = $fichaje->hora_salida;
+            $horasSemanales[$dayName]['horas'] = $fichaje->horas;
         }
 
-        // Crea una instancia de Dompdf
         $dompdf = new Dompdf();
 
-        // Genera el contenido HTML del PDF
         $html = '<html><body>';
         $html .= '<h1>Horas semanales de: ' . Auth::user()->nombre . ' ' . Auth::user()->apellidos . '</h1>';
         $html .= '<h2>Semana del: ' . $fechaInicioSemana->format('Y-m-d') . ' al ' . $fechaFinSemana->format('Y-m-d') . '</h2>';
         $html .= '<table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: center">';
         $html .= '<tr>';
         $html .= '<th style="border: 1px solid #000; padding: 8px;">Día</th>';
+        $html .= '<th style="border: 1px solid #000; padding: 8px;">Hora Entrada</th>';
+        $html .= '<th style="border: 1px solid #000; padding: 8px;">Hora Salida</th>';
         $html .= '<th style="border: 1px solid #000; padding: 8px;">Horas</th>';
         $html .= '</tr>';
 
-        foreach ($horasSemanales as $dia => $horas) {
+        foreach ($horasSemanales as $dia => $data) {
             $html .= '<tr>';
             $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $dia . '</td>';
-            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $horas . '</td>';
+            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $data['hora_entrada'] . '</td>';
+            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $data['hora_salida'] . '</td>';
+            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $data['horas'] . '</td>';
             $html .= '</tr>';
         }
 
         $html .= '</table>';
 
-        // Carga el contenido HTML en Dompdf
         $dompdf->loadHtml($html);
 
-        // Renderiza el contenido HTML en PDF
         $dompdf->render();
 
-        // Genera el nombre del archivo PDF
         $fileName = 'horas_semanales.pdf';
 
-        // Descarga el PDF generado
         $dompdf->stream($fileName, ['Attachment' => true]);
     }
 
@@ -111,51 +117,49 @@ class HistorialController extends Controller
             ->orderBy('fecha')
             ->get();
 
-        // Crear un arreglo con los días del mes y asignarles un valor predeterminado de 0 horas
         $diasMes = [];
         foreach (range(1, cal_days_in_month(CAL_GREGORIAN, date('n'), date('Y'))) as $day) {
-            $diasMes[$day] = 0;
+            $diasMes[$day] = ['horas' => 0, 'hora_entrada' => null, 'hora_salida' => null];
         }
 
-        // Asignar las horas correspondientes a los días en el arreglo $diasMes
         foreach ($fichajesMes as $fichaje) {
             $day = ltrim(date('j', strtotime($fichaje->fecha)), '0');
             if (isset($diasMes[$day])) {
-                $diasMes[$day] = isset($fichaje->horas) ? $fichaje->horas : 0;
+                $diasMes[$day]['hora_entrada'] = $fichaje->hora_entrada;
+                $diasMes[$day]['hora_salida'] = $fichaje->hora_salida;
+                $diasMes[$day]['horas'] = isset($fichaje->horas) ? $fichaje->horas : 0;
             }
         }
 
-        // Crea una instancia de Dompdf
         $dompdf = new Dompdf();
 
-        // Genera el contenido HTML del PDF
         $html = '<html><body>';
         $html .= '<h1>Horas mensuales de: ' . Auth::user()->nombre . ' ' . Auth::user()->apellidos . '</h1>';
         $html .= '<h2>Mes del: ' . $fechaInicioMes->format('Y-m-d') . ' al ' . $fechaFinMes->format('Y-m-d') . '</h2>';
         $html .= '<table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: center">';
         $html .= '<tr>';
         $html .= '<th style="border: 1px solid #000; padding: 8px;">Día</th>';
+        $html .= '<th style="border: 1px solid #000; padding: 8px;">Hora de Entrada</th>';
+        $html .= '<th style="border: 1px solid #000; padding: 8px;">Hora de Salida</th>';
         $html .= '<th style="border: 1px solid #000; padding: 8px;">Horas</th>';
         $html .= '</tr>';
-        foreach ($diasMes as $dia => $horas) {
+        foreach ($diasMes as $dia => $datos) {
             $html .= '<tr>';
             $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $dia . '</td>';
-            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $horas . '</td>';
+            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $datos['hora_entrada'] . '</td>';
+            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $datos['hora_salida'] . '</td>';
+            $html .= '<td style="border: 1px solid #000; padding: 8px;">' . $datos['horas'] . '</td>';
             $html .= '</tr>';
         }
         $html .= '</table>';
         $html .= '</body></html>';
 
-        // Carga el contenido HTML en Dompdf
         $dompdf->loadHtml($html);
 
-        // Renderiza el contenido HTML en PDF
         $dompdf->render();
 
-        // Genera el nombre del archivo PDF
         $fileName = 'horas_mensuales.pdf';
 
-        // Descarga el PDF generado
         $dompdf->stream($fileName, ['Attachment' => true]);
     }
 

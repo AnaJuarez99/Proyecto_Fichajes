@@ -52,7 +52,23 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nombre' => ['required', 'string', 'max:30'],
             'apellidos' => ['required', 'string', 'max:30'],
-            'dni' => ['required', 'string', 'size:9', 'unique:users'],
+            'dni' => [
+                'required',
+                'string',
+                'regex:/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i',
+                'unique:users',
+                function ($attribute, $value, $fail) {
+                    // Validar letra del DNI
+                    $numeroDNI = substr($value, 0, -1);
+                    $letraDNI = strtoupper(substr($value, -1));
+                    $letrasValidas = 'TRWAGMYFPDXBNJZSQVHLCKE';
+                    $letraEsperada = $letrasValidas[intval($numeroDNI) % 23];
+
+                    if ($letraDNI !== $letraEsperada) {
+                        $fail('El DNI proporcionado no es válido.');
+                    }
+                },
+            ],
             'telefono' => ['required', 'string', 'size:9'],
             'puesto' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
